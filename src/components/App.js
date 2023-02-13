@@ -1,18 +1,21 @@
-import React , {useState,useEffect} from 'react'
+import React, { useState } from "react";
 import '../styles/App.css';
-import ChildComponent from './ChildComponent';
+import ChildComponent from "./ChildComponent";
 const App = () => {
- //code here
+  //code here
+  const [value, setValue] = useState("");
 
+  function onInputChange(event) {
+    setValue(event.target.value);
+  }
   return (
     <div id="main">
-      <ChildComponent /> 
-       <input id='input' onChange={} />
-    
-      <p id='output'>{}</p>
+      <ChildComponent>
+        <input id="input" onChange={onInputChange} />
+      </ChildComponent>
+      <p id="output">{Number(value) * Number(value)}</p>
     </div>
-  )
-}
-
+  );
+};
 
 export default App;
